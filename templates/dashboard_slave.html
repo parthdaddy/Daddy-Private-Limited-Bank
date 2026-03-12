@@ -1,26 +1,41 @@
+<!-- templates/dashboard_slave.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Slave Dashboard</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <title>Slave Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<h1>Welcome {{ user.email }}</h1>
+    <h2>Welcome, {{ user }}</h2>
+    <p>You are logged in as <strong>slave</strong>.</p>
 
-<div class="card">
-<p>Balance: ₹{{ user.balance }}</p>
-<p>Total Withdrawn: ₹{{ user.withdrawn }}</p>
-</div>
-
-<div class="card">
-<h2>Fixed Deposit</h2>
-<a href="/fd.html">Invest in FD</a>
-</div>
-
-<div class="card">
-<h2>Share Market</h2>
-<a href="/shares.html">Buy Shares (₹{{ shares.price }})</a>
-</div>
-
+    <div class="nav-links">
+        <a href="{{ url_for('fd') }}">Fixed Deposit</a>
+        <a href="{{ url_for('shares') }}">Shares Market</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
 </body>
 </html>
