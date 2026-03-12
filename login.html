@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Bank Login</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<script>
 
-<body>
+function login(){
 
-<div class="login-box">
-<h2>Bank Customer Login</h2>
+let u=document.getElementById("user").value
+let p=document.getElementById("pass").value
 
-<input type="text" id="userid" placeholder="Customer ID">
-<input type="password" id="password" placeholder="Password">
+// Admin login
+if(u==="admin" && p==="admin123"){
+window.location="admin.html"
+}
 
-<button onclick="login()">Login</button>
+// Customer login
+else if(u==="customer1" && p==="12345"){
+window.location="dashboard.html"
+}
 
-<p id="message"></p>
+else{
+document.getElementById("msg").innerText="Invalid login credentials"
+}
 
-</div>
+}
 
-<script src="script.js"></script>
-</body>
-</html>
+</script>
