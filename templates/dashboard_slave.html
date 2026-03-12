@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slave Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>Welcome {{ user.email }}</h1>
+
+<div class="card">
+<p>Balance: ₹{{ user.balance }}</p>
+<p>Total Withdrawn: ₹{{ user.withdrawn }}</p>
+</div>
+
+<div class="card">
+<h2>Fixed Deposit</h2>
+<a href="/fd.html">Invest in FD</a>
+</div>
+
+<div class="card">
+<h2>Share Market</h2>
+<a href="/shares.html">Buy Shares (₹{{ shares.price }})</a>
+</div>
+
+</body>
+</html>
