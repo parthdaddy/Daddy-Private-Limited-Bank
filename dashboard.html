@@ -1,23 +1,69 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <title>Dashboard</title>
+
+<style>
+
+body{
+background:#0d0d0d;
+color:white;
+font-family:Arial;
+text-align:center;
+padding-top:80px;
+}
+
+.card{
+background:#1a1a1a;
+width:350px;
+margin:auto;
+padding:30px;
+border-radius:12px;
+box-shadow:0 0 20px black;
+}
+
+.balance{
+font-size:28px;
+color:#00c3ff;
+margin:20px 0;
+}
+
+button{
+padding:10px 20px;
+border:none;
+background:#00c3ff;
+color:black;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>Welcome to Your Bank Account</h1>
+<div class="card">
 
-<p>Your account details will appear here.</p>
+<h2>Account Dashboard</h2>
+
+<p>Welcome Customer</p>
+
+<div class="balance">
+₹ 25,000
+</div>
 
 <button onclick="logout()">Logout</button>
 
+</div>
+
 <script>
 function logout(){
-localStorage.removeItem("token")
-window.location.href="login.html"
+window.location="index.html"
 }
 </script>
 
 </body>
+
 </html>
