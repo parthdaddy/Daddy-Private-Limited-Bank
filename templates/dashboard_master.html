@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Master Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>Master Dashboard</h1>
+
+<div class="card">
+<h2>Slave Accounts</h2>
+<ul>
+{% for u in users %}
+<li>{{ u.email }} - Balance: ₹{{ u.balance }} - Withdrawn: ₹{{ u.withdrawn }}</li>
+{% endfor %}
+</ul>
+</div>
+
+<div class="card">
+<h2>Update FD & Share Prices</h2>
+<p>FD Interest Rate: {{ fd.interestRate }}%</p>
+<p>Share Price: ₹{{ shares.price }}</p>
+</div>
+
+</body>
+</html>
