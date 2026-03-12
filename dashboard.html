@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+</head>
 
+<body>
+
+<h1>Welcome to Your Bank Account</h1>
+
+<p>Your account details will appear here.</p>
+
+<button onclick="logout()">Logout</button>
+
+<script>
+function logout(){
+localStorage.removeItem("token")
+window.location.href="login.html"
+}
+</script>
+
+</body>
+</html>
