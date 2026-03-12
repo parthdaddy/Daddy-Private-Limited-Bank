@@ -21,44 +21,44 @@ def login():
             session["user"] = email
             session["role"] = user["role"]
             if user["role"] == "master":
-                return redirect(url_for("dashboard_master"))
+                return redirect(url_for("templates/dashboard_master"))
             else:
-                return redirect(url_for("dashboard_slave"))
+                return redirect(url_for("templates/dashboard_slave"))
         return "Invalid credentials"
-    return render_template("login.html")
+    return render_template("templates/login.html")
 
 # Master Dashboard
-@app.route("/dashboard_master")
+@app.route("templates/dashboard_master")
 def dashboard_master():
     if session.get("role") != "master":
         return "Access Denied"
     user_email = session.get("user")
-    return render_template("dashboard_master.html", user=user_email)
+    return render_template("templates/dashboard_master.html", user=user_email)
 
 # Slave Dashboard
-@app.route("/dashboard_slave")
+@app.route("templates/dashboard_slave")
 def dashboard_slave():
     if session.get("role") != "slave":
         return "Access Denied"
     user_email = session.get("user")
-    return render_template("dashboard_slave.html", user=user_email)
+    return render_template("templates/dashboard_slave.html", user=user_email)
 
 # Fixed Deposit Page (Slave)
-@app.route("/fd")
+@app.route("templates/fd")
 def fd():
     if session.get("role") != "slave":
         return "Access Denied"
     user_email = session.get("user")
-    return render_template("fd.html", user=user_email)
+    return render_template("templates/fd.html", user=user_email)
 
 # Share Market Page (Slave)
-@app.route("/shares")
+@app.route("templates/shares")
 def shares():
     if session.get("role") != "slave":
         return "Access Denied"
     user_email = session.get("user")
     share_price = 500  # Example fixed share price
-    return render_template("shares.html", user=user_email, share_price=share_price)
+    return render_template("templates/shares.html", user=user_email, share_price=share_price)
 
 # Logout Route
 @app.route("/logout")
