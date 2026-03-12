@@ -5,7 +5,7 @@ app.secret_key = "secret_key"
 
 # Fixed credentials
 accounts = [
-    {"email": "mer@gmail.com", "password": "mast123", "role": "master"},
+    {"email": "parth@gmail.com", "password": "vppv123", "role": "master"},
     {"email": "hastpatel77@gmail.com", "password": "sissyhast", "role": "slave"},
     {"email": "slave2@gmail.com", "password": "slave234", "role": "slave"}
 ]
