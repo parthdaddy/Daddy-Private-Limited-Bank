@@ -25,3 +25,19 @@ def login():
                 return redirect("/dashboard_slave")
         return "Invalid credentials"
     return render_template("login.html")
+# Fixed Deposit Page (Slave)
+@app.route("/fd")
+def fd():
+    if session.get("role") != "slave":
+        return "Access Denied"
+    user = next((u for u in accounts if u["email"] == session["user"]), None)
+    return render_template("fd.html", user=user)
+
+# Share Market Page (Slave)
+@app.route("/shares")
+def shares():
+    if session.get("role") != "slave":
+        return "Access Denied"
+    user = next((u for u in accounts if u["email"] == session["user"]), None)
+    share_price = 500  # Example fixed share price
+    return render_template("shares.html", user=user, share_price=share_price)
