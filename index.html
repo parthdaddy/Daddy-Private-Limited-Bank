@@ -1,47 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Daddy Private Limited Bank</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Daddy Private Bank</title>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
-
 body{
 background:#0d0d0d;
-color:white;
+font-family:Arial;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
+color:white;
 }
 
-.container{
+.box{
 background:#1a1a1a;
 padding:40px;
-border-radius:12px;
-width:350px;
-box-shadow:0 0 20px rgba(0,0,0,0.8);
+border-radius:10px;
+width:340px;
 text-align:center;
-}
-
-h1{
-margin-bottom:10px;
-color:#00c3ff;
-}
-
-p{
-margin-bottom:25px;
-color:#aaa;
 }
 
 input{
@@ -54,55 +40,44 @@ background:#2a2a2a;
 color:white;
 }
 
-input:focus{
-outline:none;
-border:1px solid #00c3ff;
-}
-
 button{
 width:100%;
 padding:12px;
 background:#00c3ff;
 border:none;
 border-radius:6px;
-font-size:16px;
 cursor:pointer;
-color:black;
 font-weight:bold;
-margin-top:10px;
-}
-
-button:hover{
-background:#00a5d6;
-}
-
-.footer{
-margin-top:20px;
-font-size:12px;
-color:#666;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="container">
+<div class="box">
 
-<h1>Daddy Private Bank</h1>
-<p>Secure Customer Login</p>
+<h2>Daddy Private Bank</h2>
 
-<input id="user" placeholder="Customer ID">
+<input id="email" placeholder="Email">
 
-<input id="pass" type="password" placeholder="Password">
+<input id="password" type="password" placeholder="Password">
 
 <button onclick="login()">Login</button>
 
-<p id="msg"></p>
+<br><br>
 
-<div class="footer">
-© 2026 Daddy Private Limited Bank
+<div id="g_id_onload"
+data-client_id="YOUR_GOOGLE_CLIENT_ID"
+data-callback="handleCredentialResponse">
 </div>
+
+<div class="g_id_signin"
+data-type="standard">
+</div>
+
+<p id="msg"></p>
 
 </div>
 
@@ -110,19 +85,27 @@ color:#666;
 
 function login(){
 
-let u=document.getElementById("user").value
-let p=document.getElementById("pass").value
+let email=document.getElementById("email").value
+let pass=document.getElementById("password").value
 
-if(u==="customer1" && p==="12345"){
+if(email==="customer@gmail.com" && pass==="12345"){
 window.location="dashboard.html"
+}else{
+document.getElementById("msg").innerText="Invalid login"
 }
-else{
-document.getElementById("msg").innerText="Invalid login credentials"
+
 }
+
+function handleCredentialResponse(response){
+
+console.log("Google login success")
+
+window.location="dashboard.html"
 
 }
 
 </script>
 
 </body>
+
 </html>
